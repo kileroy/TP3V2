@@ -1,0 +1,4 @@
+L'autentification marche pas pour les membvre, tout le monde peu modif tout le monde
+
+le plugin de drapeau marche pas
+
