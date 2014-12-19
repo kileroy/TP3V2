@@ -116,5 +116,12 @@ class Me extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
+        
+         public function getSexe ($term = null) {
+      if(!empty($term)) {
+        $sexe = $this->find('list', array('conditions' => array('name LIKE' => trim($term) . '%')));
+        return $sexe;
+      }
+      return false;
+    }
 }

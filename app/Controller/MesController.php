@@ -14,7 +14,7 @@ class MesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session');
+	public $components = array('Paginator', 'Session', 'RequestHandler');
 
 /**
  * index method
@@ -24,6 +24,13 @@ class MesController extends AppController {
 	public function index() {
 		$this->Me->recursive = 0;
 		$this->set('mes', $this->paginate());
+                
+                 if ($this->request->is('ajax')) {
+                    $term = $this->request->query('term');
+                    $sexe = $this->Me->getSexe($term);
+                    $this->set(compact('sexe'));
+                    $this->set('_serialize', 'sexe');
+                 }
 	}
 
 /**
@@ -50,10 +57,10 @@ class MesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Me->create();
 			if ($this->Me->save($this->request->data)) {
-				$this->Session->setFlash(__('The me has been saved'), 'flash/success');
+				$this->Session->setFlash(__('Votre \'Moi\' a été sauvgardé'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The me could not be saved. Please, try again.'), 'flash/error');
+				$this->Session->setFlash(__('Ce \'Moi\' n\'a pas pu être sauvgardé'), 'flash/error');
 			}
 		}
 	}

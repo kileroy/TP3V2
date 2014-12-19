@@ -54,12 +54,9 @@ class UsersController extends AppController {
 	
 		if ($this->request->is('post')) {
 			$this->User->create();
-			//captcha
-			if ("696" != $_POST['Captcha']) {
-			echo $_POST['Captcha'];
-				$this->Session->setFlash(__('Invalid Catpcah, re-Enter one.'), 'flash/error');
-			//fin
-			} elseif ($this->User->save($this->request->data)) {
+			if ($this->User->save($this->request->data)) {
+                            $d = $this->request->data;
+                           // $this->send_mail($d['User']['email'], $d['User']['username'], $d['User']['password']);
 				$this->Session->setFlash(__('The user has been saved'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -130,4 +127,17 @@ public function login() {
 public function logout() {
     return $this->redirect($this->Auth->logout());
 }
-}
+
+
+
+/*public function send_mail($receiver = null, $name = null, $pass = null) {
+        $confirmation_link = "http://" . $_SERVER['HTTP_HOST'] . $this->webroot . "users/login/";
+        $message = 'Bonjour,' . $name . '. Ton mot de passe est ' . $pass;
+        App::uses('CakeEmail', 'Network/Email');
+        $email = new CakeEmail('gmail');
+        $email->from('yourUsername@gmail.com');
+        $email->to($receiver);
+        $email->subject('Mail Confirmation');
+        $email->send($message . " " . $confirmation_link);
+    }*/
+}?>

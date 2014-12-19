@@ -62,27 +62,27 @@
  * flags =>
  * A key/value array of driver specific connection options.
  */
+define('DEFAULT_DB', APP . DS . 'sqlite' . DS . 'mei.sqlite');
+
 class DATABASE_CONFIG {
+    /* 	public $default = array(
+      'datasource' => 'Database/Mysql',
+      'persistent' => false,
+      'host' => 'localhost',
+      'login' => 'root',
+      'password' => 'mysql',
+      'database' => 'bakeblog',
+      'prefix' => '',
+      //'encoding' => 'utf8',
+      );
+     */
 
-	public $default = array(
-		'datasource' => 'Database/Mysql',
-		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => 'mysql',
-		'database' => 'mei',
-		'prefix' => '',
-		'encoding' => 'utf8',
-	);
+    public $default = array(
+        'datasource' => 'Database/Sqlite',
+        'persistent' => false,
+        'database' => 'mei.sqlite',
+        'prefix' => ''
+            //'encoding' =&gt; 'utf8',
+    );
 
-	public $test = array(
-		'datasource' => 'Database/Mysql',
-		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
-		'prefix' => '',
-		//'encoding' => 'utf8',
-	);
 }

@@ -29,7 +29,7 @@
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th><?php echo $this->Paginator->sort('content_id'); ?></th>
+							
 							<th><?php echo $this->Paginator->sort('event_date'); ?></th>
 							<th><?php echo $this->Paginator->sort('content'); ?></th>
 							
@@ -43,9 +43,7 @@
 <?php foreach ($myEvents as $myEvent): ?>
 	<tr>
 		
-		<td>
-			<?php echo $this->Html->link($myEvent['Event']['title'], array('controller' => 'events', 'action' => 'view', $myEvent['Event']['id'])); ?>
-		</td>
+		
 		<td><?php echo h($myEvent['MyEvent']['event_date']); ?>&nbsp;</td>
 		<td><?php echo h($myEvent['MyEvent']['content']); ?>&nbsp;</td>
 		<td><?php echo h($myEvent['MyEvent']['created']); ?>&nbsp;</td>

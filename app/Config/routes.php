@@ -28,13 +28,12 @@
 App::uses('I18nRoute', 'I18n.Routing/Route');
 
 Router::connect('/',
-	array('controller' => 'login', 'action' => 'index'),
+	array('controller' => 'Events', 'action' => 'index'),
 	array('routeClass' => 'I18nRoute')
 );
 Router::connect('/pages/*',
 	array('controller' => 'add', 'action' => 'display'),
-	array('routeClass' => 'I18nRoute')
-);
+	array('routeClass' => 'I18nRoute'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
@@ -50,5 +49,6 @@ Router::connect('/pages/*',
 	
 	Router::connect('/my/custo/route',
 	array(/* some params */),
-	array('routeClass' => 'I18nRoute')
-);
+	array('routeClass' => 'I18nRoute'));
+    
+        Router::parseExtensions();

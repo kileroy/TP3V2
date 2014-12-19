@@ -28,8 +28,6 @@
 			<?php echo $this->Form->create('MyEvent', array('role' => 'form')); ?>
 
 				<fieldset>
-
-					
 					</div><!-- .form-group -->
 					<div class="form-group">
 						<?php echo $this->Form->input('event_date', array('class' => 'form-control')); ?>
@@ -40,6 +38,9 @@
 					
 					<div class="form-group">
 						<?php echo $this->Form->input('user_id', array('class' => 'form-control')); ?>
+					</div><!-- .form-group -->
+                                        <div class="form-group">
+						<?php echo $this->Form->input('me_id', array('class' => 'form-control')); ?>
 					</div><!-- .form-group -->
 
 					<?php echo $this->Form->submit('Submit', array('class' => 'btn btn-large btn-primary')); ?>
