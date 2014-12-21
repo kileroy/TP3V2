@@ -47,7 +47,7 @@ class Me extends AppModel {
 			'datetime' => array(
 				'rule' => array('datetime'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
+				'allowEmpty' => true,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
@@ -118,10 +118,10 @@ class Me extends AppModel {
 	);
         
          public function getSexe ($term = null) {
-      if(!empty($term)) {
-        $sexe = $this->find('list', array('conditions' => array('name LIKE' => trim($term) . '%')));
-        return $sexe;
-      }
+            if(!empty($term)) {
+              $sexe = $this->find('list', array('conditions' => array('name LIKE' => trim($term) . '%')));
+              return $sexe;
+            }
       return false;
     }
 }

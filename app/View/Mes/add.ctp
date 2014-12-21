@@ -49,8 +49,8 @@
 					</div><!-- .form-group -->
                                         
 					<div class="form-group">
-						<?php  echo $this->Form->create();
-                                                echo $this->Form->input('gender', array('class' => 'ui-autocomplete', 'id' => 'autocomplete')); ?>
+						<?php echo $this->Form->input('gender', array('class' => 'ui-autocomplete',
+                                                                 'id' => 'autocomplete')); ?>
 					</div><!-- .form-group -->
                                         
 					<div class="form-group">

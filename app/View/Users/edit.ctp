@@ -39,7 +39,10 @@
 					<div class="form-group">
 						<?php echo $this->Form->input('role', array('class' => 'form-control')); ?>
 					</div><!-- .form-group -->
-
+                                        <div class="form-group">
+						<?php echo $this->Form->input('file', array('label' => 'Avatar', 'type' => 'file')); ?>
+					</div><!-- .form-group -->
+                                        
 					<?php echo $this->Form->submit('Submit', array('class' => 'btn btn-large btn-primary')); ?>
 
 				</fieldset>

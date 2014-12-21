@@ -51,4 +51,4 @@ Router::connect('/pages/*',
 	array(/* some params */),
 	array('routeClass' => 'I18nRoute'));
     
-        Router::parseExtensions();
+Router::parseExtensions();

@@ -1,3 +1,12 @@
+<?php
+  //let's load jquery libs from google
+  $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array('inline' => false));
+  $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', array('inline' => false));
+
+  //load file for this view to work on 'autocomplete' field
+  $this->Html->script('View/Mes/add', array('inline' => false));
+?>
+
 
 <div id="page-container" class="row">
 
@@ -56,7 +65,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $me['Me']['id']), array('class' => 'btn btn-default btn-xs')); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $me['Me']['id']), array('class' => 'btn btn-default btn-xs')); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $me['Me']['id']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', $me['Me']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $me['Me']['id']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete %s?', $me['Me']['first_name'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

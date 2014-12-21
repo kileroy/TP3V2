@@ -6,7 +6,7 @@ App::uses('AppModel', 'Model');
  * @property User $User
  */
 class Event extends AppModel {
-
+    
 /**
  * Display field
  *
@@ -68,4 +68,19 @@ class Event extends AppModel {
 			'order' => ''
 		)
 	);
+       /* public $hasMany = array(
+		'Privacy' => array(
+			'className' => 'Privacy',
+			'foreignKey' => 'privacy_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+      );*/
 }

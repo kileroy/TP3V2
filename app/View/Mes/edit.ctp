@@ -1,4 +1,11 @@
+<?php
+  //let's load jquery libs from google
+  $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array('inline' => false));
+  $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', array('inline' => false));
 
+  //load file for this view to work on 'autocomplete' field
+  $this->Html->script('View/Mes/edit', array('inline' => false)); ?>
+  
 <div id="page-container" class="row">
 
 	<div id="sidebar" class="col-sm-3">
@@ -43,7 +50,8 @@
 						<?php echo $this->Form->input('last_name', array('class' => 'form-control')); ?>
 					</div><!-- .form-group -->
 					<div class="form-group">
-						<?php echo $this->Form->input('gender', array('class' => 'form-control')); ?>
+						<?php echo $this->Form->input('Gender', array('class' => 'ui-autocomplete',
+                                                                 'id' => 'autocomplete')); ?>
 					</div><!-- .form-group -->
 					<div class="form-group">
 						<?php echo $this->Form->input('date_of_birth', array('class' => 'form-control')); ?>

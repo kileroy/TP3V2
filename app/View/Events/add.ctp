@@ -34,7 +34,11 @@
 					<div class="form-group">
 						<?php echo $this->Form->input('user_id', array('class' => 'form-control')); ?>
 					</div><!-- .form-group -->
-				
+                                        <div class="form-group">
+						<?php echo $this->Form->input('privacy_id');
+                                                echo $this->Form->input('avec_id');
+                                                ?>
+					</div><!-- .form-group -->
 
 					<?php echo $this->Form->submit('Submit', array('class' => 'btn btn-large btn-primary')); ?>
 
@@ -47,3 +51,21 @@
 	</div><!-- /#page-content .col-sm-9 -->
 
 </div><!-- /#page-container .row-fluid -->
+
+<?php
+$this->Js->get('#EventPrivacyId')->event('change', 
+$this->Js->request(array(
+'controller'=>'avec',
+'action'=>'getByPrivacy'
+), array(
+'update'=>'#EventAvecId',
+'async' => true,
+'method' => 'post',
+'dataExpression'=>true,
+'data'=> $this->Js->serializeForm(array(
+'isForm' => true,
+'inline' => true
+))
+))
+);
+?>

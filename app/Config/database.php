@@ -80,7 +80,7 @@ class DATABASE_CONFIG {
     public $default = array(
         'datasource' => 'Database/Sqlite',
         'persistent' => false,
-        'database' => 'mei.sqlite',
+        'database' => DEFAULT_DB,
         'prefix' => ''
             //'encoding' =&gt; 'utf8',
     );

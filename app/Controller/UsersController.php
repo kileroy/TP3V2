@@ -56,6 +56,13 @@ class UsersController extends AppController {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
                             $d = $this->request->data;
+                            $link = array('controller'=>'users','action'=>'active',$this->User->id.'-'.md5($d['User']['password']));
+                            App::uses('CakeEmail', 'Network/Email');
+                            $mail = new CakeEmail();
+                        $mail->from('noreply@localhost.net')->to($d['User']['email'])
+                                ->subject('Validation d\'inscription')->emailFormat('html')
+                                ->template('add')->viewVars(array('username'=>$d['User']['username'], 'link'=>$link))
+                                ->send();
                            // $this->send_mail($d['User']['email'], $d['User']['username'], $d['User']['password']);
 				$this->Session->setFlash(__('The user has been saved'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
@@ -128,16 +135,19 @@ public function logout() {
     return $this->redirect($this->Auth->logout());
 }
 
-
-
-/*public function send_mail($receiver = null, $name = null, $pass = null) {
-        $confirmation_link = "http://" . $_SERVER['HTTP_HOST'] . $this->webroot . "users/login/";
-        $message = 'Bonjour,' . $name . '. Ton mot de passe est ' . $pass;
-        App::uses('CakeEmail', 'Network/Email');
-        $email = new CakeEmail('gmail');
-        $email->from('yourUsername@gmail.com');
-        $email->to($receiver);
-        $email->subject('Mail Confirmation');
-        $email->send($message . " " . $confirmation_link);
-    }*/
+ public function active ($token) {
+     $token=  explode('-', $token);
+     $user=$this->User->find('first',array(
+         'condition'=>array('id'=>$token[0],'MD5(User.password)'=>$token[1],'active'=>0)));
+ 
+     if(!empty($user)){
+         $this->User->id = $user['User']['id'];
+         $this->User->saveField('active', 1);
+         $this->Session->setFlash("Votre compte est Activé, procédez...",'flash/success');
+         $this->Auth->login($user['User']);
+     }else{
+         $this->Session->setFlash("Lien d'activation falsifié, extérmination en cours...", 'flash/error');
+     }
+     $this->redirect(array('action' => 'index'));
+ }
 }?>
