@@ -670,9 +670,18 @@ and open the template in the editor.
     <br>
     Optionelle - Créer vous un evenement du temps d'adolessent, d'adult ou de viellard en<br>
     cliquant en premier temps sur "List Mes" puis respectivement sur "New Teenager" - <br>
-    "New Adult" - et "New Senior Citezen".<br>
+    "New Adult" - et "New Senior Citezen".<br></h3><br>
     <br>
-    Diagrame de base de Donnée du départ<br></h3>
+    Ce qui ne marche pas "encore" :<br>
+    -L'envoie d'e-mail d'identification, et a l'inscription le site semi-bug, mais l'enregistrement<br>
+    est quand même fait!
+    -L'envoie de fichier de type image n'as pas de vérification sur le type de fichier, et ne le<br>
+    sauvgarde pas dans le répertoire du site, donc inutile.
+    -Le champ "Gender" (sexe) n'as pas de autocompletation et ne semble pas vouloir se faire editer.<br>
+    -Le champ "Privacy" & "Avec", qui sont supposer être des liste lié, n'affiche rien dans leur<br>
+    contenu et ne servent donc a rien.
+    <br>
+    Diagrame de base de Donnée du départ<br>
     <a href="http://www.databaseanswers.org/data_models/generic_and_specific_models/index.htm"><img src="./generic_me_and_my_life_model.gif"></a><br>
     -cliquer pour aller a l'emplacement original d'où ce diagramme provient.-<br><br><br>
     ps- Le SVC -en object- et l'image ne veulent pas s'afficher avec les controleur de mvc...
